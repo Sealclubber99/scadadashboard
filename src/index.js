@@ -5,8 +5,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Cards from "./Cards";
 import CardDeck from "./CardDeck";
+import ToolBar from './ToolBar';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 const assets =[
     'BatCave',
     'Heights',
@@ -26,9 +28,12 @@ const assets =[
 ]
 root.render(
   <React.StrictMode>
-      <div className="container-fluid d-flex flex-row justify-content-around overflow-auto flex-wrap">
-          <CardDeck assets = {assets}></CardDeck>
+      <div>
+          <ToolBar></ToolBar>
       </div>
+      {/*<div className="container-fluid d-flex flex-row justify-content-around overflow-auto flex-wrap">*/}
+      {/*    /!*<CardDeck assets = {assets}></CardDeck>*!/*/}
+      {/*</div>*/}
 
 
 

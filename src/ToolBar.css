@@ -1,0 +1,12 @@
+.button_default{
+    background-color: white;
+    color: #253350;
+    border: 1px solid #253350;
+    border-radius: 5px;
+    margin: 5px;
+
+}
+.button_default:hover{
+    color: #3809BE;
+    border: 2px solid #3809BE;
+}
