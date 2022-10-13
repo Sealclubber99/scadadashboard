@@ -1,5 +1,6 @@
 import './ToolBar.css';
 import Dropdown from "react-dropdown";
+import Switch from "react-switch";
 import 'react-dropdown/style.css'
 
 const assets =[
@@ -29,23 +30,21 @@ function ToolBar(){
 
     return(
       <div>
-          <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <nav className="d-flex flex-row justify-content-between">
 
 
-              <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul className="navbar-nav mr-auto">
-                      <li className="nav-item dropdown button_default">
-                          <Dropdown options={assets}   placeholder="New ASSET">
-                              {/*<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"*/}
-                              {/*     className="bi bi-plus-lg" viewBox="0 0 16 16">*/}
-                              {/*    <path fill-rule="evenodd"*/}
-                              {/*          d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>*/}
-                              {/*</svg>*/}
+              <div className="" id="navbarSupportedContent">
+                  <ul className="navbar-nav mr-auto d-flex flex-row justify-content-start">
+                      <li className="">
+                          <div className="test">
+                              <Dropdown options={assets} id="asset_drop"  placeholder="New ASSET">
+                              </Dropdown>
 
-                          </Dropdown>
+                          </div>
+
                       </li>
-                      <li className="nav-item active">
-                          <button className="button_default" onClick={() => openNew('http://localhost:3000/#')}>
+                      <li className="">
+                          <button className="button_default" id="display_btn" onClick={() => openNew('http://localhost:3000/#')}>
                               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                    className="bi bi-display" viewBox="0 0 16 16">
                                   <path
@@ -55,8 +54,8 @@ function ToolBar(){
                           </button>
 
                       </li>
-                      <li className="nav-item">
-                          <button className="button_default">
+                      <li className="">
+                          <button className="button_default" id="clear_btn">
                               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                    className="bi bi-eraser-fill" viewBox="0 0 16 16">
                                   <path
@@ -67,9 +66,9 @@ function ToolBar(){
                           </button>
 
                       </li>
-                      <li className="nav-item">
+                      <li className="">
 
-                          <button className="button_default" onClick={refresh}>
+                          <button className="button_default" id="refresh_btn" onClick={refresh}>
                               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                    className="bi bi-arrow-clockwise" viewBox="0 0 16 16">
                                   <path fill-rule="evenodd"
@@ -79,6 +78,19 @@ function ToolBar(){
                               </svg>
                           </button>
                       </li>
+                      <li>
+                          <label className="switch">
+                              <input type="checkbox"/>
+                              <span className="slider round"></span>
+                          </label>
+                      </li>
+                      <li>
+                          <label className="switch">
+                              <input type="checkbox"/>
+                              <span className="slider round"></span>
+                          </label>
+                      </li>
+
                   </ul>
               </div>
           </nav>

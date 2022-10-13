@@ -1,6 +1,5 @@
-.card {
-    width: 22%;
-    /*height: 30%;*/
+.card-l {
+    width: 44%;
     box-shadow: 2px 2px green;
     border: 1px solid;
     margin: 5px;
@@ -8,6 +7,16 @@
 
 
 /*padding: 20px;*/
+}
+.card-s {
+    width: 22%;
+    box-shadow: 2px 2px green;
+    border: 1px solid;
+    margin: 5px;
+
+
+
+    /*padding: 20px;*/
 }
 p{
     width: auto;
@@ -20,6 +29,9 @@ p{
     float:left;
     position:relative;
     margin-left:-5px;
+}
+.bc_height{
+    height: 36vh !important;
 }
 .bottom_card::-webkit-scrollbar {
     display: none;

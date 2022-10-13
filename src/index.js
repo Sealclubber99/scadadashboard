@@ -7,36 +7,14 @@ import Cards from "./Cards";
 import CardDeck from "./CardDeck";
 import ToolBar from './ToolBar';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import CardComponent from "./components/cardComponent";
+import NavComponent from "./components/navComponent";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const assets =[
-    'BatCave',
-    'Heights',
-    'Loop 4631',
-    'Brazoria',
-    'Lopeno 1',
-    'Pueblo 1',
-    'Pueblo 2',
-    'Ranchtown',
-    'Sweeny',
-    'Zapata 1',
-    'Zapata 2',
-    'Alvin',
-    'Angleton',
-    'Magnolia',
-    'Odessa'
-]
+
 root.render(
   <React.StrictMode>
-      <div>
-          <ToolBar></ToolBar>
-      </div>
-      {/*<div className="container-fluid d-flex flex-row justify-content-around overflow-auto flex-wrap">*/}
-      {/*    /!*<CardDeck assets = {assets}></CardDeck>*!/*/}
-      {/*</div>*/}
-
-
-
+      <App/>
   </React.StrictMode>
 );
 
