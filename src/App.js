@@ -8,7 +8,8 @@ import {csv} from 'd3';
 
 // import React from "@types/react";
 import PapaParse from 'papaparse';
-import file from './super_endpoints_component.csv';
+import compfile from './super_endpoints_component.csv';
+import sitefile from './super_endpoints_site.csv';
 
 import cardComponent from "./components/cardComponent";
 import config from "bootstrap/js/src/util/config";
@@ -31,12 +32,15 @@ const assets_dict = {
 }
 
 function App (){
-    const [data, setData] = useState(csv(file));
+    const [compdata, setCompData] = useState(csv(compfile));
+    const [sitedata, setSiteData] =useState(csv(sitefile))
+    // const []
     window.onload = useEffect(()=>{
         setTimeout(()=>{
-            csv(file).then(temp=>{setData(temp);});
+            csv(compfile).then(temp=>{setCompData(temp);});
+            csv(sitefile).then(temp=>{setSiteData(temp);});
             // setData(csv(file));
-            console.log(data);
+            console.log(compdata);
         }, 4000)
     }, [])
 
@@ -50,7 +54,8 @@ function App (){
         // console.log(index);
         // console.log(data);
         // console.log(data[index]['breaker_status']);
-        const row = data[index];
+        const freq = sitedata[index]['frequency'];
+        const row = compdata[index];
         // var variable_dict ={
         //     'SOC': row['gen_soc'],
         //     'LMP_gen':row['gen_lmp'],
@@ -68,7 +73,7 @@ function App (){
         //
         // }
         console.log(row)
-        const test = <CardComponent asset={asset} row={row} selectedSize={selectedSize}></CardComponent>
+        const test = <CardComponent asset={asset} row={row} selectedSize={selectedSize} freq={freq}></CardComponent>
 
         setSelectedAsset([...selectedAsset, test]);
     };

@@ -1,22 +1,19 @@
-.card-l {
-    width: 44%;
-    box-shadow: 2px 2px green;
-    border: 1px solid;
-    margin: 5px;
 
-
-
-/*padding: 20px;*/
-}
 .card-s {
     width: 22%;
-    box-shadow: 2px 2px green;
+    border-radius: 9px;
+    box-shadow: 2px 2px #869295;
     border: 1px solid;
     margin: 5px;
-
-
-
-    /*padding: 20px;*/
+    height: 22%;
+}
+.card-l {
+    width: 44%;
+    border-radius: 9px;
+    box-shadow: 2px 2px #869295;
+    border: 1px solid;
+    margin: 5px;
+    height: 44%;
 }
 p{
     width: auto;
@@ -50,10 +47,20 @@ p{
 }
 .light_indicator {
     width: .8vw;
-    height:.8vw;
+    padding: 0px;
+    height: .8vw;
+}
+.card-l .light_indicator {
+    padding: 0px;
+    width: 1.6vw;
+    height: 1.6vw;
 }
 .secondary_text {
     font-size: .5vw;
+    color: #869295;
+}
+.card-l .secondary_text {
+    font-size: 1vw;
     color: #869295;
 }
 .scroll_text{
@@ -65,17 +72,28 @@ p{
     color: #869295;
     font-weight: bold;
 }
+.card-l .reg_text{
+    font-size: 1.2vw;
+    color: #869295;
+    font-weight: bold;
+}
 .primary_text {
     color: #253350;
 }
 .asset_names {
     font-size: 1.5vw;
 }
+.card-l .asset_names{
+    font-size: 3vw;
+}
 .price{
     font-size: 1.2vw;
 }
+.card-l .price{
+    font-size: 2.4vw;
+}
 .nmw{
-    font-size: 1.2vw;
+    font-size: 1vw;
     color: #869295;
 }
 .on_clr{
@@ -86,40 +104,50 @@ p{
     color:#F43B00;
 }
 .rtu{
-    margin: 0px;
-    padding: 0px;
     display:none;
 }
 .vpn:hover  .rtu{
     display: block;
-    /*color:red;*/
+    position: fixed;
 }
 #sw1{
     display: none;
 }
 #sw1_icon:hover #sw1{
     display: block;
+    position: absolute;
 }
 #ftm{
     display: none;
 }
+#top_row{
+    height: 40%;
+    /*background-color: green;*/
+}
 #ftm_icon:hover #ftm{
     display: block;
+    position: absolute;
 }
 #gen{
     display: none;
 }
 #gen_icon:hover #gen{
     display: block;
+    position: absolute;
 }
 #ld{
     display: none;
 }
 #load_icon:hover #ld{
     display: block;
+    position: absolute;
 }
 .fuse_text{
-    font-size: 53%;
+    font-size: .45vw;
+    color: #869295;
+}
+.card-l .fuse_text{
+    font-size: .9vw;
     color: #869295;
 }
 .unrow_r{
@@ -131,3 +159,92 @@ p{
 .top_card {
     /*height: 15% !important;*/
 }
+@keyframes border-pulsate-red {
+    0%   { color: rgba(255, 0, 0, 1); }
+    50%  { color: rgba(255, 0, 0, 0); }
+    100% { color: rgba(255, 0, 0, 1); }
+}
+@keyframes color-pulsate-green {
+    0%   { color: rgba(0, 255, 0, 1); }
+    50%  { color: rgba(0, 255, 0, 0); }
+    100% { color: rgba(0, 255, 0, 1); }
+}
+@keyframes color-pulsate-blue {
+    0%   { color: rgba(0, 0, 255, 1); }
+    50%  { color: rgba(0, 0, 255, 0); }
+    100% { color: rgba(0, 0, 255, 1); }
+}
+
+@keyframes border-pulsate-red {
+    0%   { box-shadow: 0 0 3px 3px red; }
+    50%  {  box-shadow: 0 0 3px 3px rgba(255, 0, 0, 0); }
+    100% { box-shadow: 0 0 3px 3px red; }
+}
+@keyframes border-pulsate-green {
+    0%   { box-shadow: 0 0 3px 3px green; }
+    50%  {  box-shadow: 0 0 3px 3px rgba(255, 0, 0, 0); }
+    100% { box-shadow: 0 0 3px 3px green; }
+}
+@keyframes border-pulsate-blue {
+    0%   { box-shadow: 0 0 3px 3px blue; }
+    50%  {  box-shadow: 0 0 3px 3px rgba(255, 0, 0, 0); }
+    100% { box-shadow: 0 0 3px 3px blue; }
+}
+
+.green-color-fast{
+    animation: color-pulsate-green 1s infinite;
+}
+.blue-color-fast{
+    animation: color-pulsate-blue 1s infinite;
+}
+.red-color-fast{
+    animation: color-pulsate-red 1s infinite;
+}
+.green-shadow-fast{
+    animation: border-pulsate-green 1s infinite;
+}
+.red-shadow-fast{
+    animation: border-pulsate-red 1s infinite;
+}
+.blue-shadow-fast{
+    animation: border-pulsate-blue 1s infinite;
+}
+
+.green-color-med{
+    animation: color-pulsate-green 2s infinite;
+}
+.blue-color-med{
+    animation: color-pulsate-blue 2s infinite;
+}
+.red-color-med{
+    animation: color-pulsate-red 2s infinite;
+}
+.green-shadow-med{
+    animation: border-pulsate-green 2s infinite;
+}
+.red-shadow-med{
+    animation: border-pulsate-red 2s infinite;
+}
+.blue-shadow-med{
+    animation: border-pulsate-blue 2s infinite;
+}
+
+.green-color-slow{
+    animation: color-pulsate-green 3s infinite;
+}
+.blue-color-slow{
+    animation: color-pulsate-blue 3s infinite;
+}
+.red-color-slow{
+    animation: color-pulsate-red 3s infinite;
+}
+.green-shadow-slow{
+    animation: border-pulsate-green 3s infinite;
+}
+.red-shadow-slow{
+    animation: border-pulsate-red 3s infinite;
+}
+.blue-shadow-slow{
+    animation: border-pulsate-blue 3s infinite;
+}
+
