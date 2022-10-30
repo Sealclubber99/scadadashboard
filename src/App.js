@@ -26,7 +26,7 @@ const assets_dict = {
     'Zapata 1':10,
     'Zapata 2':9,
     'Alvin':2,
-    'Angleton':17,
+    // 'Angleton':17,
     'Magnolia':4,
     'Odessa':16
 }
@@ -36,6 +36,8 @@ function App (){
     const [sitedata, setSiteData] =useState(csv(sitefile))
     // const []
     window.onload = useEffect(()=>{
+        csv(compfile).then(temp=>{setCompData(temp);});
+        csv(sitefile).then(temp=>{setSiteData(temp);});
         setTimeout(()=>{
             csv(compfile).then(temp=>{setCompData(temp);});
             csv(sitefile).then(temp=>{setSiteData(temp);});
@@ -80,6 +82,26 @@ function App (){
     function removeAll(){
         setSelectedAsset([]);
     };
+    function fillAll(){
+        var temp_arr = []
+        for (const [key, value] of Object.entries(assets_dict)) {
+            // var index = assets_dict[];
+            var freq = sitedata[value]['frequency'];
+            var row = compdata[value];
+            console.log(key)
+            // try{
+            //     addAsset(key);
+            // }
+            // catch (e){
+            //     console.log(e);
+            //     console.log(key);
+            // }
+            const temp = <CardComponent asset={key} row={row} selectedSize={selectedSize} freq={freq}></CardComponent>
+            temp_arr.push(temp);
+
+        }
+        setSelectedAsset([...selectedAsset, temp_arr]);
+    }
     function changeSize(){
         setSelectedSize(!selectedSize);
         console.log(selectedSize)
@@ -87,7 +109,7 @@ function App (){
 
     return(
         <React.Fragment>
-            <NavComponent addAsset={addAsset} removeAll = {removeAll} changeSize = {changeSize}></NavComponent>
+            <NavComponent addAsset={addAsset} removeAll = {removeAll} changeSize = {changeSize} fillAll={fillAll}></NavComponent>
             {/*<CardComponent selectedAsset = {selectedAsset}></CardComponent>*/}
             <CardsComponent selectedAsset = {selectedAsset}></CardsComponent>
         </React.Fragment>
