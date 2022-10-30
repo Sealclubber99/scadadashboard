@@ -1,18 +1,15 @@
-import logo from './logo.svg';
-import React, {useState, useEffect} from "react";
+
+// imports react and the use state function
+import React, {useState} from "react";
+//app style sheet
 import './App.css';
-import CardComponent from "./components/cardComponent";
+//import nav functional component
 import NavComponent from "./components/navComponent";
+//import cards functional component
 import CardsComponent from "./components/cardsComponent";
-import {csv} from 'd3';
-
-// import React from "@types/react";
-import PapaParse from 'papaparse';
-import compfile from './super_endpoints_component.csv';
-import sitefile from './super_endpoints_site.csv';
-
-import cardComponent from "./components/cardComponent";
-import config from "bootstrap/js/src/util/config";
+//import card comp class to make a card
+import CardComp from "./components/cardComp";
+//assets dict that has all of the assets and their paired csv indexes
 const assets_dict = {
     'BatCave':5,
     'Heights':15,
@@ -28,67 +25,56 @@ const assets_dict = {
     'Alvin':2,
     'Angleton':17,
     'Magnolia':4,
-    'Odessa':16
+    'Odessa':16,
+    'NorthFork':11,
 }
-
+//functional component for app
 function App (){
-    const [compdata, setCompData] = useState(csv(compfile));
-    const [sitedata, setSiteData] =useState(csv(sitefile))
-    // const []
-    window.onload = useEffect(()=>{
-        setTimeout(()=>{
-            csv(compfile).then(temp=>{setCompData(temp);});
-            csv(sitefile).then(temp=>{setSiteData(temp);});
-            // setData(csv(file));
-            console.log(compdata);
-        }, 4000)
-    }, [])
 
+    //hooks vs class state because we went the functional component vs react component route
+    //selected asset is for the current dropdown selection from nav then adds it to a list of all the other assets chosen
+    //use state to access variables without using the react component class state storage
     const [selectedAsset, setSelectedAsset] = useState(
         () => JSON.parse(localStorage.getItem("selectedAsset")) || []
     );
+    //similar situation for selected size which essentially corresponds to large and big chosen in nav, sent here and then sent to the individual card
     const [selectedSize, setSelectedSize] = useState(() => false);
+    //similar id variable sent into the card from the app to dictate the id for the new html elements, increases every new item to prevent duplicates
+    const [id, setID] = useState(() => 0);
+    //add asset function called to from nav dropdown
     function addAsset(asset){
-        var index = assets_dict[asset];
-        // var temp = .then(data);
-        // console.log(index);
-        // console.log(data);
-        // console.log(data[index]['breaker_status']);
-        const freq = sitedata[index]['frequency'];
-        const row = compdata[index];
-        // var variable_dict ={
-        //     'SOC': row['gen_soc'],
-        //     'LMP_gen':row['gen_lmp'],
-        //     'LMP_load':row['load_lmp'],
-        //     'AVR': row['gen_avr_status'],
-        //     'Reg_down_gen':row['gen_reg_down_responsibility'],
-        //     'Reg_down_load':row['load_reg_down_responsibility'],
-        //     'Reg_up_gen':row['gen_reg_up_responsibility'],
-        //     'Reg_up_load':row['load_reg_up_responsibility'],
-        //     'rrs_gen':row['gen_rrs_responsibility'],
-        //     'rrs_load':row['load_rrs_responsibility'],
-        //     'SOC': row['gen_soc'],
-        //     'LMP_gen':row['gen_lmp'],
-        //     'LMP_load':row['load_lmp'],
-        //
-        // }
-        console.log(row)
-        const test = <CardComponent asset={asset} row={row} selectedSize={selectedSize} freq={freq}></CardComponent>
-
-        setSelectedAsset([...selectedAsset, test]);
+        setID(id+1);//sets the id number to plus one before sending it to the new card component
+        //creates a new card using the card comp class then sends in the asset name, id for the card, and the selected size from the nav component
+        const newCard = <CardComp asset={asset} id={id} selectedSize={selectedSize}></CardComp>;
+        //adds the new card to the array of cards
+        setSelectedAsset([...selectedAsset, newCard]);
     };
+    //empties the cards array
     function removeAll(){
         setSelectedAsset([]);
     };
+    //fill all function autopopulates the array
+    function fillAll(){
+        //temp array so it can add all the cards simultaneously - one at a time wouldn't work correctly with the way these callbacks work
+        var temp_arr = []
+        var temp_id = id;
+        for (const [key, value] of Object.entries(assets_dict)) {
+            temp_id +=1
+            const temp =<CardComp asset={key} id={temp_id}></CardComp>
+            temp_arr.push(temp);
+
+        }
+        setID(temp_id+1)
+        setSelectedAsset([...selectedAsset, temp_arr]);
+    }
+    //change size just toggles the value
     function changeSize(){
         setSelectedSize(!selectedSize);
-        console.log(selectedSize)
     };
-
+    //basically returns the html for the page which is essentially just the Nav component with the array of cars below
     return(
         <React.Fragment>
-            <NavComponent addAsset={addAsset} removeAll = {removeAll} changeSize = {changeSize}></NavComponent>
-            {/*<CardComponent selectedAsset = {selectedAsset}></CardComponent>*/}
+            <NavComponent addAsset={addAsset} removeAll = {removeAll} changeSize = {changeSize} fillAll={fillAll}></NavComponent>
             <CardsComponent selectedAsset = {selectedAsset}></CardsComponent>
         </React.Fragment>
     );

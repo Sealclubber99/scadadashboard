@@ -247,4 +247,41 @@ p{
 .blue-shadow-slow{
     animation: border-pulsate-blue 3s infinite;
 }
+.bar_left{
+    width:80% ;
+    /*border: 1px solid black;*/
+    height: 10px;
 
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+.bar_right{
+    width:80%;
+    height: 10px;
+    /*border: 1px solid black;*/
+
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+.vertical_line{
+    width:1px !important;
+    height: 4vh;
+    border:1px solid black;
+
+}
+#dis_bar{
+    background-color: #3809BE;
+}
+#char_bar{
+    background-color: #31F9D5;
+}
+#loadudbp{
+    background-color: #C2D8C7;
+
+}
+#genudbp{
+    background-color: #B5CEDF;
+}
+.unrow {
+    width: auto !important;
+}

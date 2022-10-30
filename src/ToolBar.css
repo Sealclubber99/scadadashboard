@@ -23,20 +23,20 @@ li{
     justify-content: center;
 }
 #display_btn{
-    width: 150px;
-    height: 30px;
+    width: 200px;
+    height: 40px;
 }
 #clear_btn{
-    width: 70px;
-    height: 30px;
+    width: 90px;
+    height: 40px;
 }
 #refresh_btn{
-    width: 50px;
-    height: 30px;
+    width: 65px;
+    height: 40px;
 }
 asset_drop{
-    width: 170px !important;
-    height: 30px !important;
+    /*width: 210px !important;*/
+    /*height: 40px !important;*/
 
 }
 
@@ -48,8 +48,8 @@ asset_drop{
 .switch {
     position: relative;
     display: inline-block;
-    width: 50px;
-    height: 29px;
+    width: 60px;
+    height: 39px;
 }
 
 /* Hide default HTML checkbox */
@@ -75,8 +75,8 @@ asset_drop{
 .slider:before {
     position: absolute;
     content: "";
-    height: 21px;
-    width: 21px;
+    height: 31px;
+    width: 31px;
     left: 4px;
     bottom: 4px;
     background-color: white;
@@ -107,8 +107,8 @@ input:checked + .slider:before {
     border-radius: 50%;
 }
 .test{
-    width: 150px;
-    height: 30px;
+    width: 175px;
+    /*height: 500000% !important;*/
 }
 .Dropdown-control {
     position: relative;
@@ -127,4 +127,25 @@ input:checked + .slider:before {
 .Dropdown-control:hover {
     border: 2px solid #3809BE !important;
     box-shadow: none !important;
+}
+.mr-1{
+    margin-right: 5px;
+}
+.mr-2{
+    margin-right: 10px;
+}
+.ml-1{
+    margin-left: 5px;
+}
+.ml-2{
+    margin-left: 10px;
+}
+.nav_bar{
+    background-color: lightslategrey;
+}
+.clock{
+    margin-right: 25px;
+    font-size: 3em;
+    color: white;
+
 }

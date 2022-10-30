@@ -20,17 +20,17 @@
     border:1px solid black;
 
 }
-.main{
+#dis_bar{
     background-color: #3809BE;
 }
-.charging{
+#char_bar{
     background-color: #31F9D5;
 }
-.loadudbp{
+#loadudbp{
     background-color: #C2D8C7;
 
 }
-.genudbp{
+#genudbp{
     background-color: #B5CEDF;
 }
 .unrow {

@@ -3,14 +3,10 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Cards from "./Cards";
-import CardDeck from "./CardDeck";
-import ToolBar from './ToolBar';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import CardComponent from "./components/cardComponent";
-import NavComponent from "./components/navComponent";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+//basically just the app northing really important here thats not boilerplate
 
 root.render(
   <React.StrictMode>

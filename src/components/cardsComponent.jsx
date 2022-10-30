@@ -1,8 +1,7 @@
 import React, {Component} from "react";
 import '../deck.css'
-import CardComponent from "./cardComponent";
 
-
+//basically a functional component just to hold all the cards
 function CardsComponent({selectedAsset}){
     return(
       <div className="gallery">
