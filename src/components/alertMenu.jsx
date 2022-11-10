@@ -10,6 +10,7 @@ const col_options =[
     'gen_basepoint'
 ];
 const assets =[
+    'All',
     'BatCave',
     'Heights',
     'Loop 4631',
