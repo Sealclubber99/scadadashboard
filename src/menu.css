@@ -1,0 +1,88 @@
+.button_default{
+    background-color: white;
+    color: #253350;
+    border: 1px solid #253350;
+    border-radius: 5px;
+    margin: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.button_default:hover{
+    color: #3809BE;
+    border: 2px solid #3809BE;
+}
+.invis{
+    display: none !important;
+}
+.vis{
+    display: flex !important;
+}
+.menu_full{
+    width: 40%;
+    border-radius: 5px;
+    height: 500px;
+    background-color: grey;
+    border: 1px solid black;
+    position: fixed;
+    left:30%;
+    top:100px;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+
+}
+#value_box{
+    width: 50%;
+}
+.Dropdown-root{
+    width:100%;
+}
+.alert_table{
+    padding-top: 50px;
+}
+.table_style{
+    background-color: #61dafb;
+    margin: 15px;
+    font-size: .9em;
+    font-family: sans-serif;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    height: 200px;
+    display: block;
+    table-layout: fixed;
+    overflow: scroll;
+
+
+
+}
+.table_parent{
+    overflow: scroll;
+    height: 50%;
+}
+.table_parent::-webkit-scrollbar {
+    display: none;
+}
+.table_style::-webkit-scrollbar {
+    display: none;
+}
+
+.table_style th, .table_style td{
+    padding: 12px 15px;
+}
+.table_style tr{
+    border-bottom: 1px solid #ddd;
+}
+.table_style tr:nth-last-of-type(even){
+    background-color: #f3f3f3;
+}
+.table_style tr:last-of-type{
+    border-bottom: 2px solid #009879;
+}
+.table_style tr.active-row{
+    font-weight: bold;
+    color: #009879;
+}

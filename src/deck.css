@@ -5,3 +5,6 @@
     flex-wrap: wrap;
 
 }
+.dark .gallery{
+    background-color: #282c34;
+}

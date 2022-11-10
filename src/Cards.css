@@ -59,27 +59,62 @@ p{
     font-size: .5vw;
     color: #869295;
 }
+.dark .secondary_text {
+    font-size: .5vw;
+    color:#b5c5c9;
+}
+
 .card-l .secondary_text {
     font-size: 1vw;
     color: #869295;
 }
+.card-l .secondary_text {
+    font-size: 1vw;
+    color:#b5c5c9;
+}
+
+
 .scroll_text{
     font-size: 60%;
     color: #869295;
 }
+.dark .scroll_text{
+    font-size: 60%;
+    color:#b5c5c9;
+}
+
+
 .reg_text{
     font-size: .6vw;
     color: #869295;
     font-weight: bold;
 }
+.dark .reg_text{
+    font-size: .6vw;
+    color: #b5c5c9;
+    font-weight: bold;
+}
+
+
 .card-l .reg_text{
     font-size: 1.2vw;
     color: #869295;
     font-weight: bold;
 }
+.dark .card-l .reg_text{
+    font-size: 1.2vw;
+    color: #b5c5c9;
+    font-weight: bold;
+}
+
 .primary_text {
     color: #253350;
 }
+.dark .primary_text {
+    color:white !important;
+}
+
+
 .asset_names {
     font-size: 1.5vw;
 }
@@ -92,10 +127,17 @@ p{
 .card-l .price{
     font-size: 2.4vw;
 }
+
+
 .nmw{
     font-size: 1vw;
     color: #869295;
 }
+.dark .nmw{
+    font-size: 1vw;
+    color: #b5c5c9;
+}
+
 .on_clr{
     font-size: 90%;
     color: #00878F;
@@ -142,14 +184,28 @@ p{
     display: block;
     position: absolute;
 }
+
+
 .fuse_text{
     font-size: .45vw;
     color: #869295;
 }
+.dark .fuse_text{
+    font-size: .45vw;
+    color: #b5c5c9;
+}
+
+
 .card-l .fuse_text{
     font-size: .9vw;
     color: #869295;
 }
+.dark .card-l .fuse_text{
+    font-size: .9vw;
+    color: #b5c5c9;
+}
+
+
 .unrow_r{
     padding-right: 0 !important;
 }
@@ -269,9 +325,19 @@ p{
     border:1px solid black;
 
 }
+.dark .vertical_line{
+    width:1px !important;
+    height: 4vh;
+    border:1px solid white;
+
+}
 #dis_bar{
     background-color: #3809BE;
 }
+.dark #dis_bar{
+    background-color: #02fa17;
+}
+
 #char_bar{
     background-color: #31F9D5;
 }
@@ -284,4 +350,13 @@ p{
 }
 .unrow {
     width: auto !important;
+}
+body{
+    background-color: #009879;
+}
+html{
+    background-color: white;
+}
+.dark html{
+    background-color: #282c34;
 }

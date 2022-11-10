@@ -160,25 +160,26 @@ class CardComp extends Component {
         //width % for load hsl bar
         load_width:100,
         //width % gen hsl bar
-        gen_width:100
+        gen_width:100,
+        shouldAlert:false
 
 
 
 
 
 
-    }
+    };
     //constructor, creates the card class object
     constructor(props){
         //super - allows us to use the props which are passed in from app parent
         super(props);
         //gets the index for the asset using the assets_dict, in order to select row from csv
-        var temp = assets_dict[props.asset]
+        var temp = assets_dict[props.asset];
         //used to grab hsl values
         var gen_temp, load_temp;
 
         //status label defualt is ds1
-        var status_label = 'gen_ds1_status'
+        var status_label = 'gen_ds1_status';
 
         //checking indexes instead of asset name to set the deictionary hsl values
         // 3 = batcave, 9=Northfork
@@ -218,11 +219,39 @@ class CardComp extends Component {
             'vpn':closed,
             'rtu':"NA",
             'dnp3':"NA",
-            'avr2':"NA"
+            'avr2':"NA",
+            alerts: this.props.alerts
         });
 
     }
     render(){
+        // var alerted = false;
+        // console.log(this.props)
+        // console.log(this.state.alerts)
+        // if(typeof(this.props.alerts) != "undefined"){
+        //
+        //     this.props.alerts.forEach((item) =>{
+        //         if((item.asset == this.state.asset)||(item.asset == "All")){
+        //             if(item.operator == ">"){
+        //                 if(Number(this.state[item.column]) > Number(item.value())){
+        //                     alerted = true;
+        //                 }
+        //             }
+        //             else if(item.operator == "<"){
+        //                 if(Number(this.state[item.column]) < Number(item.value())){
+        //                     alerted = true;
+        //                 }
+        //
+        //             }
+        //             else{
+        //                 if(Number(this.state[item.column]) == Number(item.value())){
+        //                     alerted = true;
+        //                 }
+        //             }
+        //             // if(row[item.column])
+        //         }
+        //     })
+        // }
 
         var flashing = false;//flashing alert is off by default
         //if the price is below ten or over 75, flashing is set to true to turn on flash class
@@ -230,13 +259,14 @@ class CardComp extends Component {
             flashing = true;
         }
 
+
         return(
             <div id={this.props.id} className={classNames({
                 'p-3':true,//padding three
                 'pb-0':true,//padding bottom 0
                 'card-l': this.state.size, //large true or false depending on size set earlier
                 'card-s':!this.state.size,//opposite of size so if large not small
-                'red-shadow-med':flashing// turn on flashing
+                'red-shadow-med':this.state.shouldAlert// turn on flashing
                 //there are several flashing classes in the stylesheets that we can set to different values
                 //plan to create a button that allows the user to set their own alerts
 
@@ -882,6 +912,32 @@ class CardComp extends Component {
             else{
                 ftm = open;
             }
+            var alerted = false;
+            if(typeof(this.props.alerts) != "undefined"){
+
+                this.props.alerts.forEach((item) =>{
+                    if((item.asset == this.state.asset)||(item.asset == "All")){
+                        if(item.operator == ">"){
+                            if(Number(row[item.column]) > Number(item.value)){
+                                alerted = true;
+                            }
+                        }
+                        else if(item.operator == "<"){
+                            if(Number(row[item.column]) < Number(item.value)){
+                                alerted = true;
+                            }
+
+                        }
+                        else{
+                            if(Number(row[item.column]) == Number(item.value)){
+                                alerted = true;
+                            }
+                        }
+                        // if(row[item.column])
+                    }
+                })
+            }
+
             //set
             this.setState({
                 asset: this.state.asset,
@@ -952,7 +1008,8 @@ class CardComp extends Component {
                 dis_width:((row['gen_net_mw']/row['gen_max_discharge_mw'] )*.8)*100,
                 load_width:((row['load_updated_basepoint']/this.state.load_def_hsl)*.80)*100,
                 gen_width:((row['gen_updated_basepoint']/this.state.load_def_hsl)*.80)*100,
-                frequency : freq
+                frequency : freq,
+                shouldAlert:alerted
 
             });
         })
@@ -967,7 +1024,7 @@ class CardComp extends Component {
     componentDidMount() {
 
         setInterval(()=>
-            this.update(), 4000)
+            this.update(), 4000);
 
     }
 }
