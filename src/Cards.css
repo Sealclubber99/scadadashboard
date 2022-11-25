@@ -351,12 +351,14 @@ p{
 .unrow {
     width: auto !important;
 }
-body{
-    background-color: #009879;
-}
-html{
-    background-color: white;
-}
-.dark html{
-    background-color: #282c34;
-}
+/*body{*/
+
+/*    background-color: #009879 !important;*/
+/*    height: 100vh;*/
+/*    z-index: -1;*/
+/*}*/
+
+/*.dark body{*/
+/*background-color: #009879 !important;*/
+/*    z-index: -1;*/
+/*}*/

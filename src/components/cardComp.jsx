@@ -351,7 +351,7 @@ class CardComp extends Component {
                         </div>
                         <div className="col-10 d-flex flex-row justify-content-end">
                             <div className="row ">
-                                <p className="price primary_text m-0" id="gen_soc"></p>
+                                <p className="price primary_text m-0" id="gen_soc">{this.state.gen_soc}</p>
                             </div>
                         </div>
                     </div>

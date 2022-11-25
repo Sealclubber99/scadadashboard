@@ -1,3 +1,18 @@
-.table_main{
-    width: 90vw;
+.vger_table{
+    width: 90%;
+}
+.vger_column{
+    /*display: flex;*/
+    width: 4%;
+    /*justify-content: center;*/
+
+}
+.table_bars{
+
+}
+.table_charge_bar{
+
+}
+.table_discharge_bar{
+
 }
