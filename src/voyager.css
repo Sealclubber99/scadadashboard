@@ -1,18 +1,56 @@
 .vger_table{
-    width: 90%;
+    width: 95vw;
+    margin: 15px;
+    border-collapse: collapse;
+
+
+}
+.vger_table td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+.vger_table th{
+    text-align: center;
 }
 .vger_column{
     /*display: flex;*/
-    width: 4%;
+    /*width: 4%;*/
     /*justify-content: center;*/
 
 }
 .table_bars{
 
+
+    width: 100%;
+    height: 80%;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: row;
+    padding:0 !important;
+    margin:0 !important;
+
+}
+.charge_col{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 .table_charge_bar{
-
+    height: 100%;
 }
 .table_discharge_bar{
-
+    background-color: red;
+    height: 100%;
+}
+.table_parent{
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;*/
+    align-items: center;
+}
+.vger_header{
+    color: white;
+    background-color: #282c34;
 }
