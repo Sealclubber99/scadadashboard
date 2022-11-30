@@ -262,6 +262,23 @@ class VoyagerController extends Component {
             color = 'white';
             char_val = item['gen_net_mw']
         }
+        var dis_width;
+        if(item['gen_max_charge_mw'] > 0){
+            char_width = ((item['load_net_mw']/item['gen_max_charge_mw'] ))*100;
+        }
+        else{
+            char_width = 0;
+        }
+
+        if(item['gen_max_discharge_mw'] > 0){
+            dis_width = ((item['gen_net_mw']/item['gen_max_discharge_mw'] )*.8)*100
+        }
+        else{
+            dis_width = 0;
+        }
+
+
+
 
         //returns each row
         return (<tr className="" key={Math.floor(Math.random() * Math.floor(Math.random() * Date.now()))}>
@@ -271,11 +288,19 @@ class VoyagerController extends Component {
             <td>{Number(item['gen_soc']).toFixed(2)}</td>
             <td>{(item['gen_max_operating_soc'])}</td>
 
-            <td className="charge_col d-flex justify-content-start p-0"><div className="table_bars p-0">
+            {/*<td className="charge_col d-flex justify-content-start p-0"><div className="table_bars p-0">*/}
 
-                <div className="table_charge_bar m-0" style={{width: char_width + '%', backgroundColor: color}}> {char_val}</div>
+            {/*    <div className="table_charge_bar m-0" style={{width: char_width + '%', backgroundColor: color}}> {char_val}</div>*/}
 
-            </div></td>
+            {/*</div></td>*/}
+            <td className="charge_col d-flex flex-row p-0 m-0">
+                <div className="col-6 p-0 m-0 d-flex justify-content-end">
+                    <div className="table_charge_bar m-0 d-flex justify-content-end p-0 m-0" style={{width: char_width + '%', backgroundColor: 'red'}}> &nbsp;</div>
+                </div>
+                <div className="col-6 p-0 m-0 d-flex justify-content-start">
+                    <div className="table_charge_bar m-0 d-flex justify-content-start p-o m-0" style={{width: dis_width + '%', backgroundColor: 'green'}}>&nbsp;</div>
+                </div>
+            </td>
             <td>{Number(item['gen_line_flows_mw']).toFixed(2)}</td>
             <td>{Number(item['gen_line_flows_mvar']).toFixed(2)}</td>
             <td>{Number(item['gen_net_mw']).toFixed(2)}</td>

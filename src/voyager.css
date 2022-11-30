@@ -38,7 +38,7 @@
     height: 100%;
 }
 .table_charge_bar{
-    height: 100%;
+    /*width: 100% !important;*/
 }
 .table_discharge_bar{
     background-color: red;
