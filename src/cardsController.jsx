@@ -37,16 +37,7 @@ const assets_dict = {
 class CardsController extends Component{
     //state stores frequency for nav bar, cards which is names of all the chosen cards, rules for alert rules
     //site data and comp data csv and vis for the alert menue and size for large or small cards
-    state = {
-        frequency:0,
-        cards: [],
-        rules:[],
-        siteData: [],
-        compData: [],
-        size:false,
-        vis:true,
 
-    }
     //constructor grabs props and binds all relevant functions
     constructor(props) {
         super(props);
@@ -56,6 +47,17 @@ class CardsController extends Component{
         this.createCard = this.createCard.bind(this)
         this.fillDeck = this.fillDeck.bind(this)
         this.updateRules = this.updateRules.bind(this)
+        this.toggleSize = this.toggleSize.bind(this)
+        this.state ={
+            frequency:0,
+            cards: [],
+            rules:[],
+            siteData: [],
+            compData: [],
+            size:false,
+            vis:true,
+
+        }
     }
     //updates the rules list saved in state
     updateRules(list){

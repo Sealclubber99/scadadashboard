@@ -31,12 +31,12 @@ const assets_dict = {
 
 class CardComponent extends Component {
     //initializing the state data, all values to 0
-    state = {
-        load_def_hsl: 0,
-        gen_def_hsl: 0,
-        switch_label: '0',
-        size: false
-    }
+    // state = {
+    //     load_def_hsl: 0,
+    //     gen_def_hsl: 0,
+    //     switch_label: '0',
+    //     size: false
+    // }
     //constructor grabs props and stores state data based on props which includes the csv data
     constructor(props) {
         super(props);
@@ -68,12 +68,12 @@ class CardComponent extends Component {
             gen_temp = Number(9.9).toFixed(1);
             load_temp = Number(9.9).toFixed(1);
         }
-        this.setState({
+        this.state={
             gen_def_hsl: gen_temp,
             load_def_hsl: load_temp,
             switch_label: status_label,
             size: this.props.size
-        })
+        }
 
 
     }

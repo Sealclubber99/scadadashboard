@@ -82,21 +82,22 @@ const operations = [
 
 
 class AlertMenu extends Component{
-    state={
-        column:'',
-        asset:'',
-        operator:'',
-        value:'',
-        key_index: 0,
-        alerts:[],
 
-    };
     constructor(props) {
         super(props);
 
 
         this.insertRow = this.insertRow.bind(this)
         this.deleteRow = this.deleteRow.bind(this)
+        this.state={
+            column:'',
+            asset:'',
+            operator:'',
+            value:'',
+            key_index: 0,
+            alerts:[],
+
+        };
     };
     insertRow() {
         // this.setState({})

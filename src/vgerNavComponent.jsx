@@ -40,6 +40,7 @@ function VgerNavComponent() {
 
                 <div className="d-flex flex-column justify-content-center" >
                     <ul className="navbar-nav mr-auto d-flex flex-row justify-content-start">
+                        {/*note change from local host change here and Nav Component when tesating outside of production*/}
                         <button className="button_default" id="home_btn" onClick={()=> openNew('https://shark-app-a7mv2.ondigitalocean.app/')}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fillRule="currentColor"
                                  className="bi bi-house" viewBox="0 0 16 16">
