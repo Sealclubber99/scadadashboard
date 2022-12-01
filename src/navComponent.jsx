@@ -138,7 +138,7 @@ function NavComponent({frequency, addAsset, removeAll, changeSize, fillAll, make
                                 </button>
                             </li>
                             <li className="mr-2">
-                                <button className="button_default" id="vger_btn" onClick={()=> openNew('http://localhost:3000/voyager')}>
+                                <button className="button_default" id="vger_btn" onClick={()=> openNew('https://shark-app-a7mv2.ondigitalocean.app/voyager')}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fillRule="currentColor"
                                          className="bi bi-rocket" viewBox="0 0 16 16">
                                         <path d="M8 8c.828 0 1.5-.895 1.5-2S8.828 4 8 4s-1.5.895-1.5 2S7.172 8 8 8Z"/>
